@@ -1,12 +1,12 @@
  @extends('layouts.app')
 
  @section('content')
- 
+
  <div class="container">
     <div class="row">
       <div class="col-md-12" align="center">
         <h1>Com S 319 Library</h1>
-      </div>  
+      </div>
     </div>
     <br>
     <div class="row">
@@ -17,7 +17,6 @@
         <div class="col-md-4">
             <a class="btn btn-default btn-block" href="register" role="button">Register</a>
         </div>
-        <hr>
     </div>
     <hr>
 </div>
