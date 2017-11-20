@@ -48,7 +48,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         if(strlen($data['phone']) > 0)
-        {            
+        {
             return Validator::make($data, [
                 'name' => 'required|string|max:255|unique:users',
                 'email' => 'required|string|email|max:255|unique:users',
@@ -78,7 +78,7 @@ class RegisterController extends Controller
         $lib = (array_key_exists('librarian', $data))? true : false;
 
         return User::create([
-            'name' => $data['name'],
+            'username' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'phone' => $phone,

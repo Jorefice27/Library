@@ -14,14 +14,14 @@
                         </div>
                     @endif
 
-                    <h1>Welcome {{ Auth::user()->name }}</h1>
+                    <h1>Welcome {{ Auth::user()->username }}</h1>
                     @if(Auth::user()->librarian)
                       <h3>Librarian View</h3>
-                      <a type="button" class="btn btn-default" href="">Add Books</a>
-                      <a type="button" class="btn btn-default" href="">Delete Books</a>
+                      <a type="button" class="btn btn-default" href="add_books">Add Books</a>
+                      <a type="button" class="btn btn-default" href="delete_books">Delete Books</a>
                       <a type="button" class="btn btn-default" href="">View Borrow History</a>
                     @else
-                    
+
                     @endif
                     <a type="button" class="btn btn-default" href="">View All Shleves</a>
                 </div>
