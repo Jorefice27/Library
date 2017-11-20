@@ -23,12 +23,28 @@ class BookController extends Controller
       $shelf->books()->save($book);
       $shelf->save();
 
-      return view('add_books');
+      return view('home');
       // return $this->shelf()->save($book);
     }
 
     public function delete()
     {
       return view('delete_books');
+    }
+
+    public function remove(Request $r)
+    {
+      // \App\Book()::where('id', $r->id)->delete();
+      $b = \App\Book::where('id', $r->id)->first();
+      if($b != null)
+      {
+        $b->delete();
+        return view('home');
+      }
+      else
+      {
+        echo "<script type='text/javascript'>alert('There is no book with that ID on record.');</script>";
+        return view('delete_books');
+      }
     }
 }

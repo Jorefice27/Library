@@ -32,7 +32,7 @@
             </div>
 
             <div class="form-group">
-              <button type="submit" class="btn btn-default pull-right">Submit</button>
+              <button type="submit" class="btn btn-default pull-right">Add Book</button>
             </div>
 
           </form>
