@@ -10,4 +10,9 @@ class Book extends Model
     {
       return $this->belongsTo(Shelf::class);
     }
+
+    public function loan()
+    {
+      return $this->hasOne(Loan::class);
+    }
 }

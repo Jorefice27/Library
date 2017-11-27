@@ -19,11 +19,11 @@
                       <h3>Librarian View</h3>
                       <a type="button" class="btn btn-default" href="add_books">Add Books</a>
                       <a type="button" class="btn btn-default" href="delete_books">Delete Books</a>
-                      <a type="button" class="btn btn-default" href="">View Borrow History</a>
+                      <a type="button" class="btn btn-default" href="borrow_history">View Borrow History</a>
                     @else
 
                     @endif
-                    <a type="button" class="btn btn-default" href="">View All Shleves</a>
+                    <a type="button" class="btn btn-default" href="shelves">View All Shleves</a>
                 </div>
             </div>
         </div>

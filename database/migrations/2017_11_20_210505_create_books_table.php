@@ -17,6 +17,7 @@ class CreateBooksTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->integer('shelf_id')->unsigned()->index();
+            $table->integer('loan_id')->nullable()->index();
             $table->string('book_name');
             $table->string('author');
             $table->integer('availability');

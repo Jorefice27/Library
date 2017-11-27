@@ -25,6 +25,17 @@ class DatabaseSeeder extends Seeder
         $s->shelf_name = "Literature";
         $s->save();
 
+        $b = new \App\Book();
+        $b->book_name = 'Science';
+        $b->author = 'Mark';
+        $b->availability = 1;
+        $s = \App\Shelf::where('shelf_name', 'Science')->first();
+        $b->shelf_id = $s->id;
+        $b->loan_id = null;
+        $b->save();
+        $s->books()->save($b);
+        $s->save();
+
         $u = new App\User();
         $u->username = 'Librarian';
         $u->email = 'Lib@lib.com';

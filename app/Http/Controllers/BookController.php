@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class BookController extends Controller
 {
@@ -24,7 +25,6 @@ class BookController extends Controller
       $shelf->save();
 
       return view('home');
-      // return $this->shelf()->save($book);
     }
 
     public function delete()
@@ -34,7 +34,6 @@ class BookController extends Controller
 
     public function remove(Request $r)
     {
-      // \App\Book()::where('id', $r->id)->delete();
       $b = \App\Book::where('id', $r->id)->first();
       if($b != null)
       {
@@ -46,5 +45,24 @@ class BookController extends Controller
         echo "<script type='text/javascript'>alert('There is no book with that ID on record.');</script>";
         return view('delete_books');
       }
+    }
+
+    public function borrow()
+    {
+      $id = request('bookID');
+      $user = \App\User::where('id', request('userID'))->first();
+      $book = \App\Book::where('id', $id)->first();
+      $book->availability = 0;
+      $shelves = \App\Shelf::get();
+      $loan = new \App\Loan();
+      $loan->book_id = $book->id;
+      $loan->due_date = Carbon::now()->addDays(7)->format('Y-m-d');
+      $loan->user_id = $user->id;
+      $loan->save();
+      $book->loan()->save($loan);
+      $book->save();
+      $user->loans()->save($loan);
+
+      return view('shelves', compact('shelves'));
     }
 }
