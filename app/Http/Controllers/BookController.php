@@ -56,7 +56,7 @@ class BookController extends Controller
       $shelves = \App\Shelf::get();
       $loan = new \App\Loan();
       $loan->book_id = $book->id;
-      $loan->due_date = Carbon::now()->addDays(7)->format('Y-m-d');
+      $loan->due_date = Carbon::now()->addDays(7)->format('m-d-Y');
       $loan->user_id = $user->id;
       $loan->save();
       $book->loan()->save($loan);

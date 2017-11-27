@@ -27,3 +27,4 @@ Route::get('/borrow_history', 'LoanController@index');
 Route::post('/add_books', 'BookController@create');
 Route::post('/delete_books', 'BookController@remove');
 Route::patch('/shelves', 'BookController@borrow');
+Route::patch('/borrow_history', 'LoanController@return');
